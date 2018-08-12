@@ -5,19 +5,20 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kwidgetsaddons
-Version  : 5.48.0
-Release  : 1
-URL      : https://download.kde.org/stable/frameworks/5.48/kwidgetsaddons-5.48.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.48/kwidgetsaddons-5.48.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.48/kwidgetsaddons-5.48.0.tar.xz.sig
+Version  : 5.49.0
+Release  : 2
+URL      : https://download.kde.org/stable/frameworks/5.49/kwidgetsaddons-5.49.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.49/kwidgetsaddons-5.49.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.49/kwidgetsaddons-5.49.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.1
+License  : GPL-2.0 ICU LGPL-2.1
 Requires: kwidgetsaddons-lib
 Requires: kwidgetsaddons-license
 Requires: kwidgetsaddons-data
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : qtbase-dev qtbase-extras mesa-dev
 
 %description
 # KWidgetsAddons
@@ -65,14 +66,14 @@ license components for the kwidgetsaddons package.
 
 
 %prep
-%setup -q -n kwidgetsaddons-5.48.0
+%setup -q -n kwidgetsaddons-5.49.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1531954283
+export SOURCE_DATE_EPOCH=1534092061
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -80,11 +81,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1531954283
+export SOURCE_DATE_EPOCH=1534092061
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kwidgetsaddons
 cp COPYING %{buildroot}/usr/share/doc/kwidgetsaddons/COPYING
 cp COPYING.LIB %{buildroot}/usr/share/doc/kwidgetsaddons/COPYING.LIB
+cp LICENSE.Unicode %{buildroot}/usr/share/doc/kwidgetsaddons/LICENSE.Unicode
 pushd clr-build
 %make_install
 popd
@@ -353,9 +355,10 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5WidgetsAddons.so.5
-/usr/lib64/libKF5WidgetsAddons.so.5.48.0
+/usr/lib64/libKF5WidgetsAddons.so.5.49.0
 
 %files license
 %defattr(-,root,root,-)
 /usr/share/doc/kwidgetsaddons/COPYING
 /usr/share/doc/kwidgetsaddons/COPYING.LIB
+/usr/share/doc/kwidgetsaddons/LICENSE.Unicode
