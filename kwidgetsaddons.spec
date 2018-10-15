@@ -5,20 +5,20 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kwidgetsaddons
-Version  : 5.50.0
-Release  : 5
-URL      : https://download.kde.org/stable/frameworks/5.50/kwidgetsaddons-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kwidgetsaddons-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kwidgetsaddons-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 6
+URL      : https://download.kde.org/stable/frameworks/5.51/kwidgetsaddons-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kwidgetsaddons-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kwidgetsaddons-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 ICU LGPL-2.1
-Requires: kwidgetsaddons-lib
-Requires: kwidgetsaddons-license
-Requires: kwidgetsaddons-data
+Requires: kwidgetsaddons-data = %{version}-%{release}
+Requires: kwidgetsaddons-lib = %{version}-%{release}
+Requires: kwidgetsaddons-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 # KWidgetsAddons
@@ -39,9 +39,9 @@ data components for the kwidgetsaddons package.
 %package dev
 Summary: dev components for the kwidgetsaddons package.
 Group: Development
-Requires: kwidgetsaddons-lib
-Requires: kwidgetsaddons-data
-Provides: kwidgetsaddons-devel
+Requires: kwidgetsaddons-lib = %{version}-%{release}
+Requires: kwidgetsaddons-data = %{version}-%{release}
+Provides: kwidgetsaddons-devel = %{version}-%{release}
 
 %description dev
 dev components for the kwidgetsaddons package.
@@ -50,8 +50,8 @@ dev components for the kwidgetsaddons package.
 %package lib
 Summary: lib components for the kwidgetsaddons package.
 Group: Libraries
-Requires: kwidgetsaddons-data
-Requires: kwidgetsaddons-license
+Requires: kwidgetsaddons-data = %{version}-%{release}
+Requires: kwidgetsaddons-license = %{version}-%{release}
 
 %description lib
 lib components for the kwidgetsaddons package.
@@ -66,27 +66,27 @@ license components for the kwidgetsaddons package.
 
 
 %prep
-%setup -q -n kwidgetsaddons-5.50.0
+%setup -q -n kwidgetsaddons-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536436507
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539618356
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536436507
+export SOURCE_DATE_EPOCH=1539618356
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kwidgetsaddons
-cp COPYING %{buildroot}/usr/share/doc/kwidgetsaddons/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/doc/kwidgetsaddons/COPYING.LIB
-cp LICENSE.Unicode %{buildroot}/usr/share/doc/kwidgetsaddons/LICENSE.Unicode
+mkdir -p %{buildroot}/usr/share/package-licenses/kwidgetsaddons
+cp COPYING %{buildroot}/usr/share/package-licenses/kwidgetsaddons/COPYING
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwidgetsaddons/COPYING.LIB
+cp LICENSE.Unicode %{buildroot}/usr/share/package-licenses/kwidgetsaddons/LICENSE.Unicode
 pushd clr-build
 %make_install
 popd
@@ -355,10 +355,10 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5WidgetsAddons.so.5
-/usr/lib64/libKF5WidgetsAddons.so.5.50.0
+/usr/lib64/libKF5WidgetsAddons.so.5.51.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kwidgetsaddons/COPYING
-/usr/share/doc/kwidgetsaddons/COPYING.LIB
-/usr/share/doc/kwidgetsaddons/LICENSE.Unicode
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kwidgetsaddons/COPYING
+/usr/share/package-licenses/kwidgetsaddons/COPYING.LIB
+/usr/share/package-licenses/kwidgetsaddons/LICENSE.Unicode
