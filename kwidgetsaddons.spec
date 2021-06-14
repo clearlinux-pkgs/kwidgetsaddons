@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kwidgetsaddons
-Version  : 5.82.0
-Release  : 39
-URL      : https://download.kde.org/stable/frameworks/5.82/kwidgetsaddons-5.82.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.82/kwidgetsaddons-5.82.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.82/kwidgetsaddons-5.82.0.tar.xz.sig
+Version  : 5.83.0
+Release  : 40
+URL      : https://download.kde.org/stable/frameworks/5.83/kwidgetsaddons-5.83.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.83/kwidgetsaddons-5.83.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.83/kwidgetsaddons-5.83.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -68,15 +68,15 @@ license components for the kwidgetsaddons package.
 
 
 %prep
-%setup -q -n kwidgetsaddons-5.82.0
-cd %{_builddir}/kwidgetsaddons-5.82.0
+%setup -q -n kwidgetsaddons-5.83.0
+cd %{_builddir}/kwidgetsaddons-5.83.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623261533
+export SOURCE_DATE_EPOCH=1623643954
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -92,19 +92,19 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623261533
+export SOURCE_DATE_EPOCH=1623643954
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwidgetsaddons
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/6f1f675aa5f6a2bbaa573b8343044b166be28399
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kwidgetsaddons-5.82.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kwidgetsaddons-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -383,7 +383,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5WidgetsAddons.so.5
-/usr/lib64/libKF5WidgetsAddons.so.5.82.0
+/usr/lib64/libKF5WidgetsAddons.so.5.83.0
 /usr/lib64/qt5/plugins/designer/kwidgetsaddons5widgets.so
 
 %files license
