@@ -1,5 +1,5 @@
 PKG_NAME := kwidgetsaddons
-URL = https://download.kde.org/stable/frameworks/5.102/kwidgetsaddons-5.102.0.tar.xz
+URL = https://download.kde.org/stable/frameworks/5.103/kwidgetsaddons-5.103.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
