@@ -6,7 +6,7 @@
 #
 Name     : kwidgetsaddons
 Version  : 5.103.0
-Release  : 59
+Release  : 60
 URL      : https://download.kde.org/stable/frameworks/5.103/kwidgetsaddons-5.103.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.103/kwidgetsaddons-5.103.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.103/kwidgetsaddons-5.103.0.tar.xz.sig
@@ -78,7 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676307450
+export SOURCE_DATE_EPOCH=1676859388
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,7 +94,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676307450
+export SOURCE_DATE_EPOCH=1676859388
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwidgetsaddons
 cp %{_builddir}/kwidgetsaddons-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kwidgetsaddons/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
