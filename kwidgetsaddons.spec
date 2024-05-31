@@ -9,7 +9,7 @@
 #
 Name     : kwidgetsaddons
 Version  : 6.2.2
-Release  : 81
+Release  : 82
 URL      : https://download.kde.org/stable/frameworks/6.2/kwidgetsaddons-6.2.2.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/6.2/kwidgetsaddons-6.2.2.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/6.2/kwidgetsaddons-6.2.2.tar.xz.sig
